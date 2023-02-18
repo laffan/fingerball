@@ -27,7 +27,7 @@ const SelectCamera = () => {
           </select>
         </div>
       ):
-      <p>This game will use {devices[0].label}.</p>}
+      <p>You appear to have only one camera. This game will ask to use it.</p>}
     </>
   );
 };
