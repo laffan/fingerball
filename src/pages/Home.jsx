@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <div>
-      <a href="/fingerball/play">Play</a>
+      <a href="/?game=not-a-real-hash-yet">Play</a>
     </div>
   );
 };
