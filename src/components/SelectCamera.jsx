@@ -27,7 +27,7 @@ const SelectCamera = () => {
           </select>
         </div>
       ):
-      <p>This game will use {device.label}.</p>}
+      <p>This game will use {devices[0].label}.</p>}
     </>
   );
 };
