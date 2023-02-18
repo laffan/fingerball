@@ -24,7 +24,7 @@ const HandPoints = ({ webcamRef, onHandPositionUpdate }) => {
     () =>
       throttle((results) => {
         setFingerPosition(results);
-      }, 50),
+      }, 100),
     []
   );
 
@@ -56,7 +56,6 @@ const HandPoints = ({ webcamRef, onHandPositionUpdate }) => {
           // smooth jitter by averaging a sample
           if (sampleCount === sampleSize) {
             const smoothedSample = smoothSample(sample);
-            console.log(smoothedSample);
             throttledStateUpdate(smoothedSample);
             sampleCount = 0;
             sample = [];
@@ -74,9 +73,9 @@ const HandPoints = ({ webcamRef, onHandPositionUpdate }) => {
   useEffect(() => {
     if (fingerPosition) {
       onHandPositionUpdate([
+        scaleX(fingerPosition[0]),
         scaleY(fingerPosition[1]),
         0,
-        scaleX(fingerPosition[0]),
       ]);
     }
   }, [fingerPosition]);

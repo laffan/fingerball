@@ -6,7 +6,6 @@ import Stadium from "./../components/Stadium";
 import HandPoints from "./../components/Handpoints";
 
 const Play = ({ gameId }) => {
-  console.log("gameId", gameId);
 
   const webcamRef = useRef();
   const [avatarPosition, setAvatarPosition] = useState([3, 0, 3]);
@@ -14,6 +13,11 @@ const Play = ({ gameId }) => {
   const handleHandPositionUpdate = (r) => {
     setAvatarPosition(r);
   };
+
+  useEffect(()=>{
+      console.log("gameId", gameId);
+
+  }, [ ])
 
   return (
     <div className="Play">
