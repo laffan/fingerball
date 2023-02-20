@@ -1,14 +1,15 @@
 import { RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
+import Avatar from "./Avatar";
 
 // Thanks to https://sbcode.net/react-three-fiber/lerp/
-function lerp(x, y, a) {
-  const r = (1 - a) * x + a * y;
-  return Math.abs(x - y) < 0.001 ? y : r;
-}
+// function lerp(x, y, a) {
+//   const r = (1 - a) * x + a * y;
+//   return Math.abs(x - y) < 0.001 ? y : r;
+// }
 
-const Stadium = ({ avatarPosition }) => {
+const Stadium = ({ webcamRef }) => {
   const avatarRef = useRef();
 
   // useEffect(()=>{
@@ -19,15 +20,17 @@ const Stadium = ({ avatarPosition }) => {
 
   // }, [ avatarPosition ])
 
-  useFrame(() => {
-    avatarRef.current.position.x = lerp(avatarRef.current.position.x, avatarPosition[1], 0.25)
-    avatarRef.current.position.z = lerp(avatarRef.current.position.z, avatarPosition[0], 0.25)
+  // useFrame(() => {
+  //   avatarRef.current.position.x = lerp(avatarRef.current.position.x, avatarPosition[1], 0.25)
+  //   avatarRef.current.position.z = lerp(avatarRef.current.position.z, avatarPosition[0], 0.25)
 
-    // console.log(avatarRef.current.posi);
-  });
+  //   // console.log(avatarRef.current.posi);
+  // });
 
   return (
+    
     <Physics>
+      
       <RigidBody type="fixed" restitution={1} position={[0, -1.25, 0]}>
         <mesh receiveShadow>
           <boxGeometry args={[10, 0.5, 10]} />
@@ -69,18 +72,7 @@ const Stadium = ({ avatarPosition }) => {
         <meshStandardMaterial color="gray" />
       </mesh>
 
-      {avatarPosition && (
-        <RigidBody
-          friction={0}
-          type="kinematicPosition"
-          restitution={1}
-        >
-          <mesh ref={avatarRef} scale={[0.4, 2, 0.4]}>
-            <boxGeometry />
-            <meshStandardMaterial color="red" />
-          </mesh>
-        </RigidBody>
-      )}
+      <Avatar webcamRef={webcamRef}/>
     </Physics>
   );
 };
