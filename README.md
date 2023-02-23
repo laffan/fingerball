@@ -1,17 +1,15 @@
 # Fingerball
 ![fingerball logo](fingerball-logo.png)
 Fingerball is a ball bouncing game that you control with your index finger.
-
+[Play the Game!](https://laffan.github.io/fingerball/)
 ## Installation
 `npm install`
 
 ## Development
 `npm run dev`
+
 ## Deployment
-TBD
-
-## 
-
+Builds built to a gh-pages branch and hosted on GitHub Pages. A deployment script `deploy.sh` is provided to assist with this task.
 
 ## Credits / Thanks
 - [Eliran Elnasi](https://eliraneln.medium.com/real-time-object-detection-using-ml5-js-and-react-c47612c60852) showed Nate how to connect [ml5.js](https://ml5js.org/) and [React Three Fiber](https://docs.pmnd.rs/).
