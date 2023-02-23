@@ -1,6 +1,7 @@
 import { useRef, useEffect, useMemo, useState } from "react";
 import ml5 from "ml5";
 import { throttle } from "lodash";
+import Webcam from "react-webcam";
 
 import { RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
 
@@ -11,6 +12,29 @@ function mapRange (value, a, b, c, d) {
     // then map it from (0..1) to (c..d) and return it
     return c + value * (d - c);
 }
+//a classic mattdesl
+function lerp(v0, v1, t) {
+  return v0*(1-t)+v1*t
+}
+// thanks chat gpt for letting me be lazy
+function averageCoordinates(arr) {
+  let sumX = 0;
+  let sumY = 0;
+  let sumZ = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    sumX += arr[i][0];
+    sumY += arr[i][1];
+    sumZ += arr[i][2];
+  }
+
+  const avgX = sumX / arr.length;
+  const avgY = sumY / arr.length;
+  const avgZ = sumZ / arr.length;
+
+  return [avgX, avgY, avgZ];
+}
+
 //stack overflow
 function truncate (number, digits) {
   var multiplier = Math.pow(10, digits),
@@ -23,7 +47,7 @@ function truncate (number, digits) {
 const Avatar = ({ webcamRef }) => {
   const [fingerPosition, setFingerPosition] = useState([0,1.5,0]);
   const vidSize = { width: 370 / 2, height: 280 / 2 };
-
+  const sample = [[0,1.5,0],[0,1.5,0],[0,1.5,0]]
 
   // Use a memo'd throttle to prevent state updates
   // from occuring each frame.
@@ -31,8 +55,13 @@ const Avatar = ({ webcamRef }) => {
   const throttledStateUpdate = useMemo(
     () =>
       throttle((p) => {
-        console.log(p)
-        setFingerPosition([p[0],1,p[2]]);
+        let x = mapRange(p[0],560,90,5,-5)
+        let y = 1
+        let z = mapRange(p[1],400,60,5,-5)
+        let s = [x,y,z]
+        sample.pop()
+        sample.unshift(s)
+        setFingerPosition(averageCoordinates(sample));
       }, 150),
     []
   );
@@ -55,7 +84,7 @@ const Avatar = ({ webcamRef }) => {
         // //         raw[2]]);
 
            throttledStateUpdate(raw.map((p)=>{
-            return ((truncate(p,2)/100) *-1)+2;
+            return truncate(p,2);
            }));
           
         }
@@ -66,12 +95,13 @@ const Avatar = ({ webcamRef }) => {
   
 
   return (
-    <RigidBody position={ fingerPosition} friction={0} type="kinematicPosition" restitution={1}>
+      <RigidBody position={ fingerPosition} friction={0} type="kinematicPosition" restitution={1}>
       <mesh scale={[0.4, 3, 0.4]}>
         <boxGeometry />
         <meshStandardMaterial color="red" />
       </mesh>
     </RigidBody>
+    
   );
 };
 export default Avatar;
