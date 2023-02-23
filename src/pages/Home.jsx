@@ -8,7 +8,7 @@ const Home = () => {
 
   const handleDeviceSelect = ( obj ) => {
     // console.log( obj );
-    setDeviceId( obj.deviceId );
+    setDeviceId( obj && obj.deviceId );
   }
   return (
     <main

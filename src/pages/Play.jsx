@@ -23,13 +23,17 @@ const Play = ({ gameId, deviceId }) => {
         className="Webcam"
         style={{ zIndex: 10, position: "fixed", left: 0, top: 0 }}
       >
-        <Webcam
-          ref={webcamRef}
-          mirrored
-          videoConstraints={{
-            deviceId: deviceId,
-          }}
-        />
+        {deviceId ? (
+          <Webcam
+            ref={webcamRef}
+            mirrored
+            videoConstraints={{
+              deviceId: deviceId,
+            }}
+          />
+        ) : (
+          <Webcam ref={webcamRef} mirrored />
+        )}
       </div>
 
       <Canvas orthographic camera={{ zoom: 50, position: [100, 100, 100] }}>
