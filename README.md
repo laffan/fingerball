@@ -1,7 +1,8 @@
 # Fingerball
 ![fingerball logo](fingerball-logo.png)
 Fingerball is a ball bouncing game that you control with your index finger.
-[Play the Game!](https://laffan.github.io/fingerball/)
+# [Play the Game!](https://laffan.github.io/fingerball/)
+
 ## Installation
 `npm install`
 
