@@ -1,5 +1,6 @@
 # Fingerball
-Exactly what it sounds like.
+![fingerball logo](fingerball-logo.png)
+Fingerball is a ball bouncing game that you control with your index finger.
 
 ## Installation
 `npm install`
