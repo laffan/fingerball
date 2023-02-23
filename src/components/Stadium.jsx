@@ -34,7 +34,7 @@ const Stadium = ({ webcamRef }) => {
       <RigidBody type="fixed" restitution={1} position={[0, -1.25, 0]}>
         <mesh receiveShadow>
           <boxGeometry args={[10, 0.5, 10]} />
-          <meshStandardMaterial color="#81B29A" />
+          <meshStandardMaterial color="bisque" />
         </mesh>
         <RigidBody type="fixed">
           <CuboidCollider args={[5, 2, 0.5]} position={[0, 1, 5.5]} />
@@ -51,7 +51,29 @@ const Stadium = ({ webcamRef }) => {
       >
         <mesh>
           <sphereGeometry />
-          <meshStandardMaterial color="#E07A5F" />
+          <meshStandardMaterial color="#ffb30f" />
+        </mesh>
+      </RigidBody>
+      <RigidBody
+        colliders="ball"
+        restitution={1}
+        position={[2, 2, 0]}
+        scale={[0.5, 0.5, 0.5]}
+      >
+        <mesh>
+          <sphereGeometry />
+          <meshStandardMaterial color="#ffb30f" />
+        </mesh>
+      </RigidBody>
+      <RigidBody
+        colliders="ball"
+        restitution={1}
+        position={[0, 3, 2]}
+        scale={[0.5, 0.5, 0.5]}
+      >
+        <mesh>
+          <sphereGeometry />
+          <meshStandardMaterial color="#ffb30f" />
         </mesh>
       </RigidBody>
 

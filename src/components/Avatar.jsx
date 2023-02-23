@@ -98,7 +98,7 @@ const Avatar = ({ webcamRef }) => {
       <RigidBody position={ fingerPosition} friction={0} type="kinematicPosition" restitution={2}>
       <mesh scale={[0.4, 3, 0.4]}>
         <boxGeometry />
-        <meshStandardMaterial color="red" />
+        <meshStandardMaterial color="#0067b9" />
       </mesh>
     </RigidBody>
     
