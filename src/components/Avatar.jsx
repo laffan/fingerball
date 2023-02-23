@@ -55,7 +55,7 @@ const Avatar = ({ webcamRef }) => {
   const throttledStateUpdate = useMemo(
     () =>
       throttle((p) => {
-        let x = mapRange(p[0],560,90,5,-5)
+        let x = mapRange(p[0],560,90,-5,5)
         let y = 1
         let z = mapRange(p[1],400,60,5,-5)
         let s = [x,y,z]
@@ -95,7 +95,7 @@ const Avatar = ({ webcamRef }) => {
   
 
   return (
-      <RigidBody position={ fingerPosition} friction={0} type="kinematicPosition" restitution={1}>
+      <RigidBody position={ fingerPosition} friction={0} type="kinematicPosition" restitution={2}>
       <mesh scale={[0.4, 3, 0.4]}>
         <boxGeometry />
         <meshStandardMaterial color="red" />
