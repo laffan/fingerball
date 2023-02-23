@@ -1,7 +1,11 @@
 # Fingerball
-![fingerball logo](fingerball-logo.png)
+![fingerball logo](/src/fingerball-logo-wide.png)
+
 Fingerball is a ball bouncing game that you control with your index finger.
-# [Play the Game!](https://laffan.github.io/fingerball/)
+
+## [Play the Game!](https://laffan.github.io/fingerball/)
+
+---
 
 ## Installation
 `npm install`
@@ -10,7 +14,7 @@ Fingerball is a ball bouncing game that you control with your index finger.
 `npm run dev`
 
 ## Deployment
-Builds built to a gh-pages branch and hosted on GitHub Pages. A deployment script `deploy.sh` is provided to assist with this task.
+Builds built to a gh-pages branch and hosted on GitHub Pages. A deployment script `deploy.sh` is provided to assist with this task. (Note: Before your first deployment, you may need to run `chmod u+x deploy.sh` to allow the file to execute.)
 
 ## Credits / Thanks
 - [Eliran Elnasi](https://eliraneln.medium.com/real-time-object-detection-using-ml5-js-and-react-c47612c60852) showed Nate how to connect [ml5.js](https://ml5js.org/) and [React Three Fiber](https://docs.pmnd.rs/).
