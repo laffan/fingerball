@@ -7,7 +7,8 @@ import "./styles.css";
 const App = () => {
   const queryParameters = new URLSearchParams(window.location.search);
   const game = queryParameters.get("game");
-  return game ? <Play gameId={game} /> : <Home />;
+  const deviceId = queryParameters.get("deviceId");
+  return game ? <Play gameId={game} deviceId={deviceId} /> : <Home />;
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
