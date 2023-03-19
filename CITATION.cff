@@ -1,0 +1,22 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Fingerball: A browser game with hand tracking through pose
+  estimation
+message: 'If you use this software, please cite it as below.'
+type: software
+authors:
+  - given-names: Nate
+    family-names: Laffan
+    affiliation: 'University of California, Santa Cruz'
+  - given-names: Samir
+    family-names: Ghosh
+    affiliation: 'University of California, Santa Cruz'
+keywords:
+  - XR
+  - React
+  - react-three-fiber
+  - hand tracking
+  - pose estimation
